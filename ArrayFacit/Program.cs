@@ -24,7 +24,7 @@ namespace ArrayFacit
             //ExerciseSevenE();
             //ExerciseSevenF();
             //ExerciseSevenG();
-            ExerciseSevenH();
+            //ExerciseSevenH();
             //ExerciseSevenI();
             //ExerciseSevenJ();
             ExerciseSevenK();
@@ -32,24 +32,21 @@ namespace ArrayFacit
 
         private static void ExerciseSevenK()
         {
-            for (int x = 0; x < 4; x++)
+            for (int y = 1; y < 5; y++)
             {
-                for (int y = 0; y < 16; y++)
+                for (int x = 1; x < 9; x++)
                 {
-                    if ()
-                    {
-                        Console.Write("#");
-                    }
-                    else if (x == 3)
-                    {
-                        Console.Write("#");
-                    }
-                    else
-                    {
-                        Console.Write("-");
-                    }
+                    if ((y == 1 || y == 2) && (x % 2 != 0)) Console.Write("##");
+
+                    else if (y == 3 && (x < 4)) Console.Write("ww");
+
+                    else if (y == 3 && (x > 3)) Console.Write("~~");
+
+                    else if (y == 4) Console.Write("##");
+
+                    else Console.Write("--");
                 }
-                Console.WriteLine();
+                Console.WriteLine("");
             }
             Console.ReadKey(true);
         }
