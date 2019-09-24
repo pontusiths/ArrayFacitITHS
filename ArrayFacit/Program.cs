@@ -19,7 +19,7 @@ namespace ArrayFacit
             //ExerciseSix();
             //ExerciseSevenA();
             //ExerciseSevenB();
-            //ExerciseSevenC();
+            ExerciseSevenC();
             //ExerciseSevenD();
             //ExerciseSevenE();
             //ExerciseSevenF();
@@ -27,7 +27,7 @@ namespace ArrayFacit
             //ExerciseSevenH();
             //ExerciseSevenI();
             //ExerciseSevenJ();
-            ExerciseSevenK();
+            //ExerciseSevenK();
         }
 
         private static void ExerciseSevenK()
@@ -213,26 +213,17 @@ namespace ArrayFacit
 
         private static void ExerciseSevenC()
         {
-            for (int i = 0; i < 4; i++)
+            for (int y = 0; y < 4; y++)
             {
-                for (int j = 0; j < 9; j++)
+                for (int x = 0; x < 4; x++)
                 {
-                    if (i == j)
-                    {
-                        Console.Write("#");
-                    }
-                    else if (i + 1 == j)
-                    {
-                        Console.Write("#");
-                    }
-                    else
-                    {
-                        Console.Write("-");
-                    }
+                    if ((y == x)) Console.Write("##");
+
+                    else Console.Write("--");
                 }
-                Console.WriteLine();
+                Console.WriteLine("");
             }
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
 
         private static void ExerciseSevenB()
