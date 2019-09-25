@@ -19,7 +19,7 @@ namespace ArrayFacit
             //ExerciseSix();
             //ExerciseSevenA();
             //ExerciseSevenB();
-            ExerciseSevenC();
+            //ExerciseSevenC();
             //ExerciseSevenD();
             //ExerciseSevenE();
             //ExerciseSevenF();
@@ -28,6 +28,34 @@ namespace ArrayFacit
             //ExerciseSevenI();
             //ExerciseSevenJ();
             //ExerciseSevenK();
+            ExerciseEight();
+            ExerciseNine();
+        }
+
+        public static void ExerciseNine()
+        {
+            int[,] array2D = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
+        }
+        
+        public static void ExerciseEight()
+        {
+            int[,] myArray = new int[_x,_y] { { 1, 1 }, { 5, 1 }, { 2, 2 }, { 2, 6 }, { 3, 3 }, { 3, 7 }, { 4, 4 }, { 4, 8 } };
+            for (int y = 1; y < 5; y++)
+            {
+                for (int x = 0; x < 9; x++)
+                {
+                    if (y == myArray[_y] && x == myArray[_x])
+                    {
+                        Console.Write("#");
+                    }
+                    else
+                    {
+                        Console.Write("-");
+                    }
+                }
+                Console.WriteLine("");
+            }
+            Console.ReadKey(true);
         }
 
         private static void ExerciseSevenK()
