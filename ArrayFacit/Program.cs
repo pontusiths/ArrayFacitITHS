@@ -28,8 +28,9 @@ namespace ArrayFacit
             //ExerciseSevenI();
             //ExerciseSevenJ();
             //ExerciseSevenK();
-            ExerciseNine();
-            ExerciseTen();
+            //ExerciseEight();
+            //ExerciseNine();
+            //ExerciseTen();
         }
 
 
@@ -58,6 +59,39 @@ namespace ArrayFacit
         {
             int[,] array2D = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } }; //Värdet variablen får är en multidimensionell array
                                                                                     //{alltså är värdet siffrorna inom måsvingarna}
+        }
+
+        private static void ExerciseEight()
+        {
+            var random = new Random();
+            int[] numbers = new int[5];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = random.Next(1, 20);
+            }
+
+            bool needSorting = true;
+            for (int i = 0; i < numbers.Length - 1 && needSorting == true; i++)
+            {
+                needSorting = false;
+                for (int j = 0; j < numbers.Length - 1 - i; j++)
+                {
+                    if (numbers[j] > numbers[j + 1])
+                    {
+                        int temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+
+                        needSorting = true;
+                    }
+                }
+            }
+
+            for (int i = 0; i < numbers.Length; i++) //Demonstration
+            {
+                Console.WriteLine(numbers[i]);
+            }
+            Console.ReadKey();
         }
 
         private static void ExerciseSevenK()
