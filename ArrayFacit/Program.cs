@@ -31,8 +31,77 @@ namespace ArrayFacit
             //ExerciseEight();
             //ExerciseNine();
             //ExerciseTen();
+            ExerciseEleven();
         }
 
+        private static void ExerciseEleven()
+        {
+            char[,] mapArray = new char[,]
+            {
+                {'#', '#', '#', '#', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '-', '@', '-', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '#', '#', '#', '#' }
+            };
+
+            while (true)
+            {
+                for (int row = 0; row < mapArray.GetLength(0); row++)
+                {
+                    for (int column = 0; column < mapArray.GetLength(1); column++)
+                    {
+                        Console.Write(mapArray[row, column]);
+                    }
+                    Console.WriteLine();
+                }
+                char move = Console.ReadKey().KeyChar;
+                switch (move)
+                {
+                    case 'w':
+                        ExerciseElevenMovement(mapArray, -1, 0);
+                        break;
+
+                    case 'a':
+                        ExerciseElevenMovement(mapArray, 0, -1);
+                        break;
+
+                    case 's':
+                        ExerciseElevenMovement(mapArray, 1, 0);
+                        break;
+
+                    case 'd':
+                        ExerciseElevenMovement(mapArray, 0, 1);
+                        break;
+
+                    default:
+                        break;
+                }
+                Console.Clear();
+            }
+        }
+
+        private static void ExerciseElevenMovement(char[,] mapArray, int y, int x)
+        {
+            int rowIndex = 0;
+            int columnIndex = 0;
+            for (int i = 0; i < mapArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < mapArray.GetLength(1); j++)
+                {
+                    if (mapArray[i, j].Equals('@'))
+                    {
+                        rowIndex = i;
+                        columnIndex = j;
+                        break;
+                    }
+                }
+            }
+            mapArray[rowIndex, columnIndex] = '-';
+            mapArray[rowIndex + y, columnIndex + x] = '@';
+        }
 
         public static void ExerciseTen()
         {
