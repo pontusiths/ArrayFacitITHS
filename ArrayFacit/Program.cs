@@ -24,32 +24,162 @@ namespace ArrayFacit
             //ExerciseSevenE();
             //ExerciseSevenF();
             //ExerciseSevenG();
-            ExerciseSevenH();
+            //ExerciseSevenH();
             //ExerciseSevenI();
             //ExerciseSevenJ();
-            ExerciseSevenK();
+            //ExerciseSevenK();
+            //ExerciseEight();
+            //ExerciseNine();
+            //ExerciseTen();
+            ExerciseEleven();
+        }
+
+        private static void ExerciseEleven()
+        {
+            char[,] mapArray = new char[,]
+            {
+                {'#', '#', '#', '#', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '-', '@', '-', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '-', '-', '-', '#' },
+                {'#', '#', '#', '#', '#' }
+            };
+
+            while (true)
+            {
+                for (int row = 0; row < mapArray.GetLength(0); row++)
+                {
+                    for (int column = 0; column < mapArray.GetLength(1); column++)
+                    {
+                        Console.Write(mapArray[row, column]);
+                    }
+                    Console.WriteLine();
+                }
+                char move = Console.ReadKey().KeyChar;
+                switch (move)
+                {
+                    case 'w':
+                        ExerciseElevenMovement(mapArray, -1, 0);
+                        break;
+
+                    case 'a':
+                        ExerciseElevenMovement(mapArray, 0, -1);
+                        break;
+
+                    case 's':
+                        ExerciseElevenMovement(mapArray, 1, 0);
+                        break;
+
+                    case 'd':
+                        ExerciseElevenMovement(mapArray, 0, 1);
+                        break;
+
+                    default:
+                        break;
+                }
+                Console.Clear();
+            }
+        }
+
+        private static void ExerciseElevenMovement(char[,] mapArray, int y, int x)
+        {
+            int rowIndex = 0;
+            int columnIndex = 0;
+            for (int i = 0; i < mapArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < mapArray.GetLength(1); j++)
+                {
+                    if (mapArray[i, j].Equals('@'))
+                    {
+                        rowIndex = i;
+                        columnIndex = j;
+                        break;
+                    }
+                }
+            }
+            mapArray[rowIndex, columnIndex] = '-';
+            mapArray[rowIndex + y, columnIndex + x] = '@';
+        }
+
+        public static void ExerciseTen()
+        {
+            char[,] myArray = new char[,]
+            {
+                { '#', '-', '-', '-', '#', '-', '-', '-' },
+                { '-', '#', '-', '-', '-', '#', '-', '-' },
+                { '-', '-', '#', '-', '-', '-', '#', '-' },
+                { '-', '-', '-', '#', '-', '-', '-', '#' }
+            };
+
+            for (int row = 0; row < myArray.GetLength(0); row++)
+            {
+                for (int column = 0; column < myArray.GetLength(1); column++)
+                {
+                    Console.Write(myArray[row, column]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey(true);
+        }
+
+        public static void ExerciseNine()
+        {
+            int[,] array2D = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } }; //Värdet variablen får är en multidimensionell array
+                                                                                    //{alltså är värdet siffrorna inom måsvingarna}
+        }
+
+        private static void ExerciseEight()
+        {
+            var random = new Random();
+            int[] numbers = new int[5];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = random.Next(1, 20);
+            }
+
+            bool needSorting = true;
+            for (int i = 0; i < numbers.Length - 1 && needSorting == true; i++)
+            {
+                needSorting = false;
+                for (int j = 0; j < numbers.Length - 1 - i; j++)
+                {
+                    if (numbers[j] > numbers[j + 1])
+                    {
+                        int temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+
+                        needSorting = true;
+                    }
+                }
+            }
+
+            for (int i = 0; i < numbers.Length; i++) //Demonstration
+            {
+                Console.WriteLine(numbers[i]);
+            }
+            Console.ReadKey();
         }
 
         private static void ExerciseSevenK()
         {
-            for (int x = 0; x < 4; x++)
+            for (int y = 1; y < 5; y++)
             {
-                for (int y = 0; y < 16; y++)
+                for (int x = 1; x < 9; x++)
                 {
-                    if ()
-                    {
-                        Console.Write("#");
-                    }
-                    else if (x == 3)
-                    {
-                        Console.Write("#");
-                    }
-                    else
-                    {
-                        Console.Write("-");
-                    }
+                    if ((y == 1 || y == 2) && (x % 2 != 0)) Console.Write("##");
+
+                    else if (y == 3 && (x < 4)) Console.Write("ww");
+
+                    else if (y == 3 && (x > 3)) Console.Write("~~");
+
+                    else if (y == 4) Console.Write("##");
+
+                    else Console.Write("--");
                 }
-                Console.WriteLine();
+                Console.WriteLine("");
             }
             Console.ReadKey(true);
         }
@@ -216,26 +346,17 @@ namespace ArrayFacit
 
         private static void ExerciseSevenC()
         {
-            for (int i = 0; i < 4; i++)
+            for (int y = 0; y < 4; y++)
             {
-                for (int j = 0; j < 9; j++)
+                for (int x = 0; x < 4; x++)
                 {
-                    if (i == j)
-                    {
-                        Console.Write("#");
-                    }
-                    else if (i + 1 == j)
-                    {
-                        Console.Write("#");
-                    }
-                    else
-                    {
-                        Console.Write("-");
-                    }
+                    if ((y == x)) Console.Write("##");
+
+                    else Console.Write("--");
                 }
-                Console.WriteLine();
+                Console.WriteLine("");
             }
-            Console.ReadKey(true);
+            Console.ReadKey();
         }
 
         private static void ExerciseSevenB()
